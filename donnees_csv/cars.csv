@@ -1,0 +1,21 @@
+car_id,maker,CO2_code,colour,year,plate
+1,BMW,653Z,red,1994,18-FIR-87
+2,BMW,741F,black,2005,46-QHD-96
+3,Land Rover,332E,orange,2009,76-PFC-22
+4,Land Rover,653Z,pink,2000,25-PKR-73
+5,Citroen,122A,grey,1997,10-GHJ-48
+6,Citroen,612G,yellow,2009,93-RKD-55
+7,Renault,101,orange,1992,94-DNH-41
+8,Daymler,741F,red,1999,35-NCO-33
+9,Land Rover,224C,dark blue,1999,22-KOR-63
+10,Land Rover,321E,red,2007,42-KOD-73
+11,Fiat,332E,white,1993,39-KAE-82
+12,Chrisler,111A,grey,2001,47-IHJ-13
+13,Daymler,653Z,grey,2003,81-BRJ-95
+14,Land Rover,224C,white,2013,35-KSB-23
+15,Citroen,224C,white,1993,76-IPQ-36
+16,Daymler,111A,dark grey,2013,68-GFS-14
+17,Mercedes,332E,dark blue,2015,70-QAF-69
+18,Volkswagen,202A,blue,2002,94-DNC-78
+19,BMW,224C,pink,1990,29-JOQ-81
+20,Volkswagen,111A,orange,2009,87-HID-23
