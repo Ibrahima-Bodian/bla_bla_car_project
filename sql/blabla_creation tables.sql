@@ -81,7 +81,6 @@ CREATE TABLE public.ratings (
     grade integer
 );
 
-
 ALTER TABLE public.ratings OWNER TO postgres;
 
 CREATE TABLE public.request_status (
