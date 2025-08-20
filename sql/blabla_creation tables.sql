@@ -1,7 +1,3 @@
---
--- PostgreSQL database dump
---
-
 CREATE database blabla_c;
 
 CREATE TABLE public.cars (
