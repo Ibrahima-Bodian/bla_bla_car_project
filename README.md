@@ -17,7 +17,7 @@
 - **Power Query** : typage, jointures, nettoyage.
 - **PostgreSQL** : stockage, requêtes SQL (aggrégations métier).
 - **GitHub** : versioning, documentation, suivi.
-
+```bash
 
 Projet_blablacar/
 ├─ data/ # CSV sources (nettoyés)
