@@ -1,18 +1,18 @@
 # BlaBlaCar — Analyse de Données & Dashboard Power BI
 
 > Analyse de trajets, demandes, membres, véhicules et notes pour comprendre l’activité, la conversion et les leviers d’amélioration.  
-> **Stack** : PostgreSQL · Power BI (DAX/Power Query) · Python (EDA) · GitHub
+> **Stack** : PostgreSQL · Power BI (DAX/Power Query) · GitHub
 
 ---
 
-## 🎯 Objectifs
+## Objectifs
 - Construire un **modèle en étoile** robuste (faits/dimensions) à partir de CSV/PostgreSQL.
 - Mesurer l’activité (trajets, demandes), la **conversion** (taux d’acceptation), le **pricing** (contribution), la **qualité** (notes).
 - Livrer un **dashboard Power BI** clair (KPI & visuels variés) pour l’exploration: temps, géographie, routes, segments membres/véhicules.
 
 ---
 
-## 🛠️ Stack & contenus
+## Stack & contenus
 - **Power BI Desktop** : modélisation (relations, dims de rôle), DAX, visuels.
 - **Power Query** : typage, jointures, nettoyage.
 - **PostgreSQL** : stockage, requêtes SQL (aggrégations métier).
@@ -35,7 +35,7 @@ Projet_blablacar/
 
 ---
 
-## 🗂️ Modèle de données (star schema)
+## Modèle de données (star schema)
 
 **Faits**
 - `FactRides` : trajets (ride_id, dates/horaires, villes départ/arrivée, sièges, contribution, membre-voiture)
@@ -60,7 +60,7 @@ Projet_blablacar/
 
 ---
 
-## 📊 KPI principaux (exemples)
+## KPI principaux (exemples)
 - **Activité** : Nombre de trajets, Nombre de demandes, Demandes par trajet (moy.)
 - **Conversion** : Taux d’acceptation (= Accepted / Total), Passagers acceptés
 - **Pricing** : Contribution moyenne (€), Revenu moyen / trajet (€) *(approx. min(sièges, accepted) × prix)*
@@ -72,7 +72,7 @@ Projet_blablacar/
 
 ---
 
-## 🧭 Pages du dashboard (structure)
+## Pages du dashboard (structure)
 1. **Accueil & KPI** — vue globale, combo *Trajets & Taux (mensuel)*, Top routes, funnel statuts.  
 2. **Temps (Jour/Mois/Année)** — séries quotidiennes/mensuelles, waterfall variation, heatmap Mois×Jour, KPI “jour/mois le plus actif”.  
 3. **Géo Départ** — carte départ, Top 10 villes départ, matrice Origine→Destination, KPI ville départ TOP1.  
@@ -86,6 +86,7 @@ Projet_blablacar/
 
 ## SQL — requêtes métier (extraits)
 -- Taux d’acceptation mensuel
+#
 SELECT DATE_TRUNC('month', r.departure_date) AS mois,
        SUM(CASE WHEN rs.status='Accepted' THEN 1 ELSE 0 END)::numeric / NULLIF(COUNT(*),0) AS taux_acceptation
 FROM requests rq
@@ -94,6 +95,7 @@ JOIN request_status rs ON rs.request_status_id = rq.request_status_id
 GROUP BY 1 ORDER BY 1;
 
 -- Top routes
+#
 SELECT cs.city_name || ' → ' || cd.city_name AS route, COUNT(*) AS nb_trajets
 FROM rides r
 JOIN cities cs ON cs.city_id = r.starting_city_id
@@ -101,6 +103,7 @@ JOIN cities cd ON cd.city_id = r.destination_city_id
 GROUP BY 1 ORDER BY nb_trajets DESC LIMIT 15;
 
 -- Revenu moyen / trajet (approx)
+#
 WITH acc AS (
   SELECT r.ride_id, r.number_seats, r.contribution_per_passenger AS price,
          COUNT(*) FILTER (WHERE rs.status='Accepted') AS accepted
