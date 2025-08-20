@@ -20,16 +20,14 @@
 
 
 Projet_blablacar/
-├─ donnees_csv/ # CSV sources (nettoyés)
+├─ data/ # CSV sources (nettoyés)
 ├─ sql/
 │ ├─ blabla_creation tables.sql # requetes de création des tables (cars, cities, members, rides...)
 │ └─ blabla_données_exportées.sql # bdd exporté depuis postgresql
-├─ rapport_&_powerbi/
+├─ powerbi/
 │ ├─ blablacar_pwbi.pbix # Dashboard Power BI
 │ └─ blablacar_pwbi.pdf/ # rapport-dashbord (aperçu)
-├─ README.md
-└─ LICENSE
-
+└─ README.md
 
 
 
